@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="w-full h-screen bg-figmaGray600">
       <header className="w-full h-52 bg-figmaGray700 grid place-items-center">
-        <img src={logoTodo} alt="Logo ToDo" />
+        <img src={logoTodo} alt="Logo ToDo" className='max-[615px]:object-cover'/>
       </header>
 
       <Form

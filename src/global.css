@@ -9,3 +9,9 @@
 body {
   background: #1A1A1A;
 }
+
+@media only screen and (max-width: 615px){
+  body {
+    width: max-content;
+  }
+}

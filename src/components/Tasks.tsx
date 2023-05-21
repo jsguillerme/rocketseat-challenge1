@@ -36,7 +36,7 @@ export function Tasks({ tasks, removeTask }: TasksProps) {
 
   return (
     <div className="w-[596px]">
-      <header className="w-full h-5 flex items-center justify-between mb-6">
+      <header className="w-full h-5 flex items-center justify-between mb-6 max-[615px]:flex-col max-[615px]:gap-3 max-[615px]:h-12">
         <div className="flex items-center text-figmaBlueLight font-bold gap-2 text-Size14">
           <p>Tarefas criadas</p>
           <div className="rounded-full bg-figmaGray400 px-2 py-[2px] text-white">{tasks.length}</div>

@@ -30,7 +30,7 @@ export function Form({ registerNewTask }: FormProps) {
   return (
     <form
       onSubmit={handleAddNewTask}
-      className='flex items-center justify-center gap-2 -mt-6'
+      className='flex items-center justify-center gap-2 -mt-6 max-[615px]:flex-col max-[615px]:gap-4'
     >
       <Input
         contentOnChange={handleChangeContentTask}
