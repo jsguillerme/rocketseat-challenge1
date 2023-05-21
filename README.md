@@ -17,7 +17,7 @@ Após finalizar o primeiro módulo da trilha de ReactJS, é proposto um desafio 
 
 ## Imagens do projeto:
 
-![imagem1]("./public/photoProject01.png")
-![imagem2]("./public/photoProject02.png")
-![imagem3]("./public/photoProject03.png")
-![imagem4]("./public/photoProject04.png")
+![imagem1]("/public/photoProject01.png")
+![imagem2]("/public/photoProject02.png")
+![imagem3]("/public/photoProject03.png")
+![imagem4]("/public/photoProject04.png")
