@@ -7,6 +7,7 @@ interface InputProps {
 }
 
 export function Input({ contentOnChange, contentValue }: InputProps) {
+  console.log(contentValue)
 
   function setOnChange(event: ChangeEvent<HTMLInputElement>) {
     contentOnChange({ content: event.target.value, isCompleted: false, id: '' })

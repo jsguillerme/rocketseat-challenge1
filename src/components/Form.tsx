@@ -12,11 +12,14 @@ interface FormProps {
 export function Form({ registerNewTask }: FormProps) {
   const [contentNewTask, setContentNewTask] = useState<TasksType>();
 
-  console.log('ContentNewTask', contentNewTask)
-
   function handleAddNewTask(event: FormEvent) {
     event.preventDefault();
-    registerNewTask({ ...contentNewTask!, id: uuidv4() })
+
+    if (contentNewTask?.content.trim() === undefined) {
+      return;
+    }
+
+    registerNewTask({ content: contentNewTask?.content || '', isCompleted: false, id: uuidv4() })
     setContentNewTask({ content: '', isCompleted: false, id: uuidv4() })
   }
 
@@ -36,7 +39,7 @@ export function Form({ registerNewTask }: FormProps) {
       <Button
         text='Criar'
         icon={<PlusCircle size={24} />}
-        disabled={contentNewTask?.content.trim() === ''}
+        disabled={contentNewTask?.content.trim() === '' || undefined}
       />
     </form>
   );
