@@ -15,8 +15,6 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem('listTasks')) {
       let listTasks = JSON.parse(localStorage.getItem('listTasks') as any);
-      console.log('list tasks in local storage: ', listTasks);
-
       setListAllTasks([...listTasks])
     } else {
       return;
@@ -44,7 +42,6 @@ function App() {
   }
 
   function updateTaskInList(taskUpdate: TasksType) {
-    console.log('task update:', taskUpdate);
     setListAllTasks(listAllTasks.map(task => task.id === taskUpdate.id ? { ...task, isCompleted: taskUpdate.isCompleted } : task))
   }
 

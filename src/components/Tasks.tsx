@@ -11,7 +11,6 @@ interface TasksProps {
 
 export function Tasks({ tasks, removeTask, updateTask }: TasksProps) {
   const [lengthTasksCompleted, setLengthTasksCompleted] = useState(0);
-  console.log('tasks in TASKS',tasks);
   
 
   useEffect(() => {
