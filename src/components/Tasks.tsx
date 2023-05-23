@@ -6,10 +6,13 @@ import { Task } from './Task';
 interface TasksProps {
   tasks: TasksType[];
   removeTask: (id: string) => void;
+  updateTask: (task: TasksType) => void;
 }
 
-export function Tasks({ tasks, removeTask }: TasksProps) {
+export function Tasks({ tasks, removeTask, updateTask }: TasksProps) {
   const [lengthTasksCompleted, setLengthTasksCompleted] = useState(0);
+  console.log('tasks in TASKS',tasks);
+  
 
   useEffect(() => {
     countTasksCompleted(tasks)
@@ -19,13 +22,16 @@ export function Tasks({ tasks, removeTask }: TasksProps) {
     tasks.filter(t => {
       if (t.id === id) {
         t.isCompleted = isCompleted;
+        updateTask(t)
       }
     });
-    countTasksCompleted(tasks)
+    countTasksCompleted(tasks);
   }
 
   function countTasksCompleted(tasksCount: TasksType[]) {
+
     let lengthArrayIsCompleted = tasksCount.filter(t => t.isCompleted === true);
+
     setLengthTasksCompleted(lengthArrayIsCompleted.length);
   }
 

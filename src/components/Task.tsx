@@ -14,12 +14,12 @@ export function Task({ content, isTaskCompleted, id, markTaskCompleted, removeTa
   const [taskCompleted, setCompleted] = useState(false);
 
   useEffect(() => {
-    isTaskCompleted = taskCompleted
-    markTaskCompleted(id, isTaskCompleted)
-  }, [taskCompleted])
+    setCompleted(isTaskCompleted)
+  }, [isTaskCompleted])
 
   function handleToggleTaskCompleted() {
-    setCompleted(!taskCompleted)
+    setCompleted(!taskCompleted);
+    markTaskCompleted(id, !taskCompleted)
   }
 
   function handleRemoveTasks(id: string) {
@@ -31,6 +31,7 @@ export function Task({ content, isTaskCompleted, id, markTaskCompleted, removeTa
       <div className="flex items-center gap-4">
         <Checkbox
           setTaskCompleted={handleToggleTaskCompleted}
+          isCompleted={taskCompleted}
         />
 
         <p className={`text-left w-fit ${taskCompleted && 'line-through text-figmaGray300'}`}

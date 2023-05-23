@@ -1,12 +1,17 @@
 import { Check } from "phosphor-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface CheckboxProps {
   setTaskCompleted: () => void;
+  isCompleted: boolean;
 }
 
-export function Checkbox({ setTaskCompleted }: CheckboxProps) {
+export function Checkbox({ isCompleted, setTaskCompleted }: CheckboxProps) {
   const [toggleCheckbox, setToggleCheckbox] = useState(false);
+
+  useEffect(() => {
+    setToggleCheckbox(isCompleted)
+  }, [isCompleted])
 
   function handleToogleCheckbox() {
     setToggleCheckbox(!toggleCheckbox);
@@ -30,8 +35,3 @@ export function Checkbox({ setTaskCompleted }: CheckboxProps) {
     </button>
   )
 }
-
-<input
-  className="appearance-none h-7 w-7 border-2 rounded-full border-figmaBlueLight hover:border-figmaBlueDark hover:cursor-pointer checked:bg-figmaPurpleDark checked:border-figmaPurpleDark checked:transition-all checked:duration-200 focus:outline-none checked:hover:bg-figmaPurpleLight checked:hover:border-figmaPurpleLight hover:transition-all hover:duration-200"
-  type="checkbox"
-/>
