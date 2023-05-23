@@ -35,8 +35,12 @@ function App() {
 
   function removeTaskInList(id: string) {
     if (listAllTasks.filter(task => task.id !== id).length > 0) {
-      setListAllTasks(listAllTasks.filter(task => task.id !== id))
+      let newListWithoutBeforeTask = listAllTasks.filter(task => task.id !== id);
+      setListAllTasks(newListWithoutBeforeTask)
+      localStorage.clear();
+      localStorage.setItem('listTasks', JSON.stringify(newListWithoutBeforeTask));
     } else {
+      localStorage.clear();
       setListAllTasks([]);
     }
   }
